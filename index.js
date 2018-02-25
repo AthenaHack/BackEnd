@@ -13,7 +13,7 @@ var authToken = process.env.AUTHTOKEN;   // Your Auth Token from www.twilio.com/
 var client = require('twilio')(accountSid, authToken);
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
 
-app.post('/', function (req, res) {
+app.post('/', function (req, res) {console.log("get post req")
   request('https://api.mlab.com/api/1/databases/athenahacks/collections/students?apiKey=o2gZ1lynVLWp2xf46oNSrA0avHlH5rUI', { json: true }, (err, res, main) => {
     if (err) { return console.log(err); }
     console.log(main.length);
@@ -25,7 +25,7 @@ app.post('/', function (req, res) {
       })
       .then((message) => console.log(message.sid));
   }
-  });
+})
 })
 
 
